@@ -8,7 +8,7 @@
     "tsc": "tsc",
     "serve": "http-server",
     "go": "npm run tsc && npm run serve",
-    "cleanhouse": "rm -rf dist && rm -rf node_modules",
+    "cleanhouse": "rm -rf dist && rm -rf node_modules && npm i",
     "effingserve": "http-server ./dist",
     "ihateyou": "gulp && npm run effingserve"
   },

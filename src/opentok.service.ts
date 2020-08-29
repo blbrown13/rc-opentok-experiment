@@ -29,7 +29,6 @@ export class OpentokService {
    * @param programId
    */
   initSession(apiKey: string, liveVideoSessionId: string): Observable<void> {
-    // @ts-ignore err type
     this.OT.on(OtEventNames.Exception, (err) => console.warn('Error from Tokbox: ', err));
 
     this.opentokSession = this.OT.initSession(apiKey, liveVideoSessionId);
