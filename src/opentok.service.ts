@@ -1,3 +1,6 @@
+// @ts-nocheck
+// because stupid implicit event types
+
 import * as OT from '@opentok/client';
 import {Observable, of, throwError} from 'rxjs';
 import {filter, shareReplay, tap} from 'rxjs/operators';
@@ -26,6 +29,7 @@ export class OpentokService {
    * @param programId
    */
   initSession(apiKey: string, liveVideoSessionId: string): Observable<void> {
+    // @ts-ignore err type
     this.OT.on(OtEventNames.Exception, (err) => console.warn('Error from Tokbox: ', err));
 
     this.opentokSession = this.OT.initSession(apiKey, liveVideoSessionId);

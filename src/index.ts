@@ -1,7 +1,14 @@
 import {OpentokService} from './opentok.service';
 import {filter, mergeMap, switchMap, switchMapTo, tap} from "rxjs/operators";
 import {OtEventNames} from './opentok.model';
-var data = require('./secrets.json');
+// var data = require('./secrets.json');
+
+// because i don't feel like dealing with this stupid thing right now
+var data = {
+  "apiKey": "CHANGE_ME",
+  "sessionId": "CHANGE_ME",
+  "token": "CHANGE_ME"
+}
 
 const otService = new OpentokService();
 const initializedTokBoxSession = otService.initSession(data.apiKey, data.sessionId);
@@ -15,6 +22,7 @@ initializedTokBoxSession.pipe(
 
 otService.coachStreamLifecycleEvents$.pipe(
   filter(event => event.type === OtEventNames.StreamCreated),
+  // @ts-ignore stupid any error
   switchMap(event => otService.sessionMediaSubscribe('camera-outlet', event['stream'], {
     fitMode: 'contain',
     height: '100%',
@@ -42,6 +50,7 @@ otService.memberStreamLifecycleEvents$
     tap((_) => console.log('memberStreamLifecycleEvents$ post filter', _)),
     mergeMap((event) =>
         otService
+        // @ts-ignore stupid any error
           .sessionMediaSubscribe('ao-member-audio', event['stream'], {
             insertMode: 'append',
             subscribeToAudio: true,

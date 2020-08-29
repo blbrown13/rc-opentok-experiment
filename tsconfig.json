@@ -1,17 +1,13 @@
 {
+  "files": [
+    "src/index.ts",
+    "src/live-session.model.ts",
+    "src/opentok.model.ts",
+    "src/opentok.service.ts"
+  ],
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "outDir": "dist",
-    "removeComments": false,
-    "sourceMap": true,
-    "target": "ES2017"
-  },
-  "exclude": [
-    "node_modules",
-    ".npm"
-  ]
+    "noImplicitAny": true,
+    "target": "es2015",
+    "moduleResolution": "node"
+  }
 }
