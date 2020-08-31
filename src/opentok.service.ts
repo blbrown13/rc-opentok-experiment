@@ -1,5 +1,5 @@
 // @ts-nocheck
-// because stupid implicit event types
+// because of implicit event types errors
 
 import * as OT from '@opentok/client';
 import {Observable, of, throwError} from 'rxjs';

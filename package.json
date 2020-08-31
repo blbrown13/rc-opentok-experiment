@@ -1,16 +1,12 @@
 {
-  "name": "opentalk_playground",
+  "name": "rc-opentok-experiment",
   "version": "1.0.0",
   "private": true,
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc",
-    "serve": "http-server",
-    "go": "npm run tsc && npm run serve",
     "cleanhouse": "rm -rf dist && rm -rf node_modules && npm i",
-    "effingserve": "http-server ./dist",
-    "ihateyou": "gulp && npm run effingserve"
+    "serve": "http-server ./dist",
+    "go": "gulp && npm run serve"
   },
   "dependencies": {
     "@opentok/client": "2.17.5",
